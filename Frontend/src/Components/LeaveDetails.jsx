@@ -3,14 +3,14 @@ import './style.css';
 
 const ManageLeaves = () => {
     const leaveData = [
-      { id: 1, name: 'John Doe', leaveType: 'Sick Leave', days: 2, status: 'Approved' },
-      { id: 2, name: 'Jane Smith', leaveType: 'Vacation Leave', days: 5, status: 'Pending' },
-      { id: 3, name: 'Mark Johnson', leaveType: 'Casual Leave', days: 3, status: 'Rejected' },
+      { id: 1, name: 'x', leaveType: 'Sick Leave', days: 2, status: 'Approved' },
+      { id: 2, name: 'y', leaveType: 'Vacation Leave', days: 5, status: 'Pending' },
+      { id: 3, name: 'z', leaveType: 'Casual Leave', days: 3, status: 'Rejected' },
     ];
   
     const handleUpdate = (id) => {
      
-    
+      navigate(`/dashboard/edit_leave/${id}`);
     };
 
     const handleDelete = (id) => {

@@ -14,6 +14,8 @@ import Start from './Components/Start'
 import EmployeeLogin from './Components/EmployeeLogin'
 import EmployeeDetail from './Components/EmployeeDetail'
 import Leaves from './Components/LeaveDetails'
+import AddLeave from './Components/AddLeave';
+import EditLeave from './Components/EditLeave';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path="/dashboard/add_employee" element={<AddEmployee />} />
           <Route path="/dashboard/edit_employee/:id" element={<EditEmployee />} />
           <Route path="/dashboard/leaves" element={<Leaves />} />
+          <Route path="/dashboard/add_leave" element={<AddLeave />} />
+          <Route path="/dashboard/edit_leave/:id" element={<EditLeave />} />
         </Route>
       </Routes>
     </BrowserRouter>

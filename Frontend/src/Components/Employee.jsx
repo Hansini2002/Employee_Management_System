@@ -3,7 +3,32 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Employee = () => {
-  const [employee, setEmployee] = useState([]);
+  const [employee, setEmployee] = useState([
+    {
+      id: 1,
+      name: "x",
+      image: "#",
+      email: "x@example.com",
+      address: "242/1",
+      salary: "Rs.150,000",
+    },
+    {
+      id: 2,
+      name: "y",
+      image: "#",
+      email: "y@example.com",
+      address: "242/1",
+      salary: "Rs.255,000",
+    },
+    {
+      id: 3,
+      name: "z",
+      image: "#",
+      email: "z@example.com",
+      address: "242/1",
+      salary: "Rs.360,000",
+    },
+  ]);
   const navigate = useNavigate()
 
   useEffect(() => {
