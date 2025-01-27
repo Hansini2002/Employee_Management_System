@@ -43,6 +43,8 @@ public class EmployeeLeave {
     @Column(nullable = false, columnDefinition = "varchar(255) default 'PENDING'")
     private LeaveStatus status = LeaveStatus.PENDING;
 
+    @Setter
+    @Getter
     private String remarks;
 
 }

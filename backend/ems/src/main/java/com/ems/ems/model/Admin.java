@@ -30,15 +30,15 @@ public class Admin {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Setter
-    @Getter
-    @ManyToMany
-    @JoinTable(
-        name = "admin_role",
-        joinColumns = @JoinColumn(name = "admin_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Set<Role> roles = new HashSet<Role>();
+//    @Setter
+//    @Getter
+//    @ManyToMany
+//    @JoinTable(
+//        name = "admin_role",
+//        joinColumns = @JoinColumn(name = "admin_id"),
+//        inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
+//    private Set<Role> roles = new HashSet<Role>();
 
 
 }

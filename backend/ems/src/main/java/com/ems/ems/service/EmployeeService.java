@@ -19,28 +19,28 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    public Employee getEmployeeById(Long id) {
-        return employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee.java not found with id: " + id));
-    }
+//    public Employee getEmployeeById(Long id) {
+//        return employeeRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("Employee.java not found with id: " + id));
+//    }
+//
+//    public Employee addEmployee(Employee employee) {
+//        return employeeRepository.save(employee);
+//    }
 
-    public Employee addEmployee(Employee employee) {
-        return employeeRepository.save(employee);
-    }
-
-    public Employee updateEmployee(Long id, Employee updatedEmployee) {
-        Employee existingEmployee = getEmployeeById(id);
-        existingEmployee.setFirstname(updatedEmployee.getFirstname());
-        existingEmployee.setLastname(updatedEmployee.getLastname());
-        existingEmployee.setEmail(updatedEmployee.getEmail());
-        existingEmployee.setAddress(updatedEmployee.getAddress());
+//    public Employee updateEmployee(Long id, @org.jetbrains.annotations.NotNull Employee updatedEmployee) {
+//        Employee existingEmployee = getEmployeeById(id);
+//        existingEmployee.setFirstname(updatedEmployee.getFirstname());
+//        existingEmployee.setLastname(updatedEmployee.getLastname());
+//        existingEmployee.setEmail(updatedEmployee.getEmail());
+//        existingEmployee.setAddress(updatedEmployee.getAddress());
 //        existingEmployee.setSalary(updatedEmployee.getSalary());
-        return employeeRepository.save(existingEmployee);
-    }
+//        return employeeRepository.save(existingEmployee);
+//    }
 
-    public void deleteEmployee(Long id) {
-        employeeRepository.deleteById(id);
-    }
-
+//    public void deleteEmployee(Long id) {
+//        employeeRepository.deleteById(id);
+//    }
+//
 
 }
