@@ -1,40 +1,44 @@
+package com.ems.ems.model;
+
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.HashSet;
 import java.util.Set;
 
-
 @Entity
-public class Employee {
+public class Admin {
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Setter
+    @Getter
     @Column(nullable = false)
     private String firstname;
 
+    @Setter
+    @Getter
     @Column(nullable = false)
     private String lastname;
 
+    @Setter
+    @Getter
     @Column(nullable = false, unique = true)
     private String email;
 
-    private LocalDate dob;
-
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Gender gender;
-
-    private String telephoneNo;
-    private String address;
-    private String city;
-
+    @Setter
+    @Getter
     @ManyToMany
     @JoinTable(
-        name = "employee_role",
-        joinColumns = @JoinColumn(name = "emp_id"),
+        name = "admin_role",
+        joinColumns = @JoinColumn(name = "admin_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles;
+    private Set<Role> roles = new HashSet<Role>();
 
-    // Getters and Setters
+
 }

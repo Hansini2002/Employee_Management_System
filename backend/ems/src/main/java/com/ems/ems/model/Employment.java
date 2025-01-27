@@ -1,3 +1,7 @@
+package com.ems.ems.model;
+
+import com.ems.ems.model.Employee;
+import com.ems.ems.model.Role;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 

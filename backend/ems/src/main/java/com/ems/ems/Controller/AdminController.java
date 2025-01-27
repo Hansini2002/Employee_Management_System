@@ -1,35 +1,35 @@
 package com.ems.ems.Controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
 
 public class AdminController {
-    @PostMapping("/login")
-    public String adminLogin(){
+    // @PostMapping("/login")
+    // public String adminLogin(){
 
-        return "Admin logged in successfully";
-    }
+    //     return "Admin.java logged in successfully";
+    // }
 
 
     public String adminDashboard(){
         // return admin dashboard details
-        return "Admin Dashboard Data";
+        return "Admin.java Dashboard Data";
     }
 
-    public List<Employee> getEmployeeList() {
-        // Return list of employees
-        return employeeService.getAllEmployees();
-    }
+    // public List<Employee.java> getEmployeeList() {
+    //     // Return list of employees
+    //     return employeeService.getAllEmployees();
+    // }
 
 
-    public String addEmployee(@RequestBody Employee employee) {
-        // Add a new employee
-        return "Employee added successfully";
-    }
+    // public String addEmployee(@RequestBody Employee.java employee) {
+    //     // Add a new employee
+    //     return "Employee.java added successfully";
+    // }
 
-    public String updateEmployee(@PathVariable Long id, @RequestBody Employee employee) {
-        // Update employee data
-        return "Employee updated successfully";
-    }
+    // public String updateEmployee(@PathVariable Long id, @RequestBody Employee.java employee) {
+    //     // Update employee data
+    //     return "Employee.java updated successfully";
+    // }
 }
