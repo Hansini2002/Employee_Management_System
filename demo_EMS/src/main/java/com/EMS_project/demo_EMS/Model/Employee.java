@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Email;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -108,5 +109,9 @@ public class Employee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public enum Gender {
+        MALE,FEMALE
     }
 }
