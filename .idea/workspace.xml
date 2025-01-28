@@ -7,12 +7,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "shenal-anthony"
+  }
 }]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Hansini2002/Employee_Management_System.git",
+    "accountId": "31bde8d1-b7b9-4a24-a5cb-250df5c9f752"
+  }
+}]]></component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2rdFxK6qmQisCTxlMFkqPbzePAL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -21,9 +37,12 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "shenal",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Coding Projects/Employee_Management_System/demo_EMS",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
@@ -31,8 +50,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-b114ca120d71-intellij.indexing.shared.core-IU-242.21829.142" />
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-IU-242.21829.142" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -45,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736881296561</updated>
       <workItem from="1736881300486" duration="42000" />
+      <workItem from="1738060140089" duration="89000" />
     </task>
     <servers />
   </component>
