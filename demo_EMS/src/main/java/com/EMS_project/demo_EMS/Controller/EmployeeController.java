@@ -23,8 +23,8 @@ public class EmployeeController {
 
     // Get all the employee list
     @GetMapping
-    public List<Employee> getAllUsers() {
-        return employeeService.getAllUsers();
+    public List<Employee> getAllEmployees() {
+        return employeeService.getAllEmployees();
     }
 
     // Edit Employee by ID
