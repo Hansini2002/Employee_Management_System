@@ -16,12 +16,14 @@ public class DashboardController {
     private final AdminService adminService;
     private final EmployeeService employeeService;
     private final EmployeeLeaveService employeeLeaveService;
-//    private PendingEmployeeLeave pendingemployeeLeave;
+    private final EmployeeLeaveService pendingEmployeeLeaveService;
 
-    public DashboardController(AdminService adminService, EmployeeService employeeService, EmployeeLeaveService employeeLeaveService) {
+    public DashboardController(AdminService adminService, EmployeeService employeeService, EmployeeLeaveService employeeLeaveService, EmployeeLeaveService pendingEmployeeLeaveService) {
         this.adminService = adminService;
         this.employeeService = employeeService;
         this.employeeLeaveService = employeeLeaveService;
+        this.pendingEmployeeLeaveService = pendingEmployeeLeaveService;
+
     }
 
     // Get the count of admins
@@ -42,8 +44,9 @@ public class DashboardController {
         return employeeLeaveService.getApprovedLeaveCount();
     }
 
-    // Dashboard reports
-    // list of admins , report generator
+    // Dashboard reports , report generator not necessary
+
+    // Get list of admins
     @GetMapping("dashboard/admins")
     public List<Admin> getAllAdmins() {
         return adminService.getAllAdmins();
@@ -53,6 +56,6 @@ public class DashboardController {
     // Approve or Reject leave
     @GetMapping("dashboard/pendingCount")
     public List<EmployeeLeave> getPendingEmployeeLeaves() {
-        return employeeLeaveService.getAllPendingRequests();
+        return pendingEmployeeLeaveService.getAllPendingRequests();
     }
 }
