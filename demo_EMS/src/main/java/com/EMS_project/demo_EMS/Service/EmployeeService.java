@@ -17,8 +17,14 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public List<Employee> getAllUsers() {
+    // Get all employees
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
+    }
+
+    // Method to get the total count of Employees
+    public int getEmployeeCount() {
+        return employeeRepository.countAllEmployees();
     }
 
 
