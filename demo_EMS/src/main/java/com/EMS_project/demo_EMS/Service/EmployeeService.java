@@ -3,6 +3,7 @@ package com.EMS_project.demo_EMS.Service;
 
 import com.EMS_project.demo_EMS.Model.Employee;
 import com.EMS_project.demo_EMS.Repository.EmployeeRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class EmployeeService {
     }
 
 
-    public Employee addEmployee(Employee employee) {
+    public Employee addEmployee(@NotNull Employee employee) {
         if (employee.getFirstname() == null || employee.getLastname() == null || employee.getEmail() == null || employee.getTelephoneNo() == null) {
             throw new IllegalArgumentException("Employee details are incomplete!");
         }
@@ -36,7 +37,7 @@ public class EmployeeService {
         return employee;
     }
 
-    public Employee updateEmployee(Long id, Employee employeeDetails) {
+    public Employee updateEmployee(Long id, @NotNull Employee employeeDetails) {
         // Find the employee by ID
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee with ID " + id + " not found"));
 

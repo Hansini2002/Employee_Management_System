@@ -16,13 +16,11 @@ public class DashboardController {
     private final AdminService adminService;
     private final EmployeeService employeeService;
     private final EmployeeLeaveService employeeLeaveService;
-    private final EmployeeLeaveService pendingEmployeeLeaveService;
 
-    public DashboardController(AdminService adminService, EmployeeService employeeService, EmployeeLeaveService employeeLeaveService, EmployeeLeaveService pendingEmployeeLeaveService) {
+    public DashboardController(AdminService adminService, EmployeeService employeeService, EmployeeLeaveService employeeLeaveService) {
         this.adminService = adminService;
         this.employeeService = employeeService;
         this.employeeLeaveService = employeeLeaveService;
-        this.pendingEmployeeLeaveService = pendingEmployeeLeaveService;
 
     }
 
@@ -56,6 +54,6 @@ public class DashboardController {
     // Approve or Reject leave
     @GetMapping("dashboard/pendingCount")
     public List<EmployeeLeave> getPendingEmployeeLeaves() {
-        return pendingEmployeeLeaveService.getAllPendingRequests();
+        return employeeLeaveService.getAllPendingRequests();
     }
 }
