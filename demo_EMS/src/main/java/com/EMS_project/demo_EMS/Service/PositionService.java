@@ -26,7 +26,7 @@ public class PositionService {
         return role;
     }
 
-    public Role updateRole(Long id, @Valid Role roleDetails) {
+    public Role updateRole(Long id, @Valid @NotNull Role roleDetails) {
         Role existingRole = roleRepository.findById(id).orElseThrow(() -> new RuntimeException("Role with ID " + id + " not found"));
         // Update fields
         existingRole.setName(roleDetails.getName());

@@ -18,7 +18,6 @@ public class PositionController {
 
     public PositionController(PositionService positionService) {
         this.positionService = positionService;
-
     }
 
 
