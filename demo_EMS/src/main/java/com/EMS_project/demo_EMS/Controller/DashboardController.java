@@ -42,8 +42,9 @@ public class DashboardController {
         return employeeLeaveService.getApprovedLeaveCount();
     }
 
-    // Dashboard reports
-    // list of admins , report generator
+    // Dashboard reports , report generator not necessary
+
+    // Get list of admins
     @GetMapping("dashboard/admins")
     public List<Admin> getAllAdmins() {
         return adminService.getAllAdmins();

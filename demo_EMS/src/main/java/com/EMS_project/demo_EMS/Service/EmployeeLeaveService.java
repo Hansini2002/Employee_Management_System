@@ -2,7 +2,6 @@ package com.EMS_project.demo_EMS.Service;
 
 import com.EMS_project.demo_EMS.Model.EmployeeLeave;
 import com.EMS_project.demo_EMS.Repository.EmployeeLeaveRepository;
-import com.EMS_project.demo_EMS.Repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,9 +11,9 @@ public class EmployeeLeaveService {
 
     private final EmployeeLeaveRepository employeeLeaveRepository;
 
-
-    public List<EmployeeLeave> getAllPendingRequests(){
-        return employeeLeaveRepository.findAll();
+    // Method to get all approved leaves
+    public List<EmployeeLeave> getAllPendingRequests() {
+        return employeeLeaveRepository.findByStatus(EmployeeLeave.LeaveStatus.PENDING);
     }
 
     public EmployeeLeaveService(EmployeeLeaveRepository employeeLeaveRepository) {

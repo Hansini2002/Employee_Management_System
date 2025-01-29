@@ -16,4 +16,7 @@ public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, In
 
 //    @Query("SELECT count(e) FROM EmployeeLeave e WHERE e.status = 'PENDING'")
 //    int countPendingLeaves();
+
+    // Method to get all approved leaves
+    List<EmployeeLeave> findByStatus(EmployeeLeave.LeaveStatus status);
 }
