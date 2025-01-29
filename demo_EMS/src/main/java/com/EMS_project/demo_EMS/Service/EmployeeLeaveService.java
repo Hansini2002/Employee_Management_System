@@ -24,4 +24,20 @@ public class EmployeeLeaveService {
     public int getApprovedLeaveCount() {
         return employeeLeaveRepository.countApprovedLeaves();
     }
+
+    public List<EmployeeLeave> getAllLeaves() {
+        return employeeLeaveRepository.findAll();
+    }
+
+    public EmployeeLeave approveLeave(Long id) {
+        EmployeeLeave leave = employeeLeaveRepository.findById(id).orElseThrow(() -> new RuntimeException("Leave not found"));
+        leave.setStatus(EmployeeLeave.LeaveStatus.valueOf("Approved"));
+        return employeeLeaveRepository.save(leave);
+    }
+
+    public EmployeeLeave rejectLeave(Long id) {
+        EmployeeLeave leave = employeeLeaveRepository.findById(id).orElseThrow(() -> new RuntimeException("Leave not found"));
+        leave.setStatus(EmployeeLeave.LeaveStatus.valueOf("Rejected"));
+        return employeeLeaveRepository.save(leave);
+    }
 }

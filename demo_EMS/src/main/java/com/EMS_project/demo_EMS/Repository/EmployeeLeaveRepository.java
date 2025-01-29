@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Integer> {
+public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Long> {
 
     // Custom query to count approved leaves
     @Query("SELECT COUNT(e) FROM EmployeeLeave e WHERE e.status = 'APPROVED'")

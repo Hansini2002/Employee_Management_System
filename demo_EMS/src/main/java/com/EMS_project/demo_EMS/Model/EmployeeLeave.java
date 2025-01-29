@@ -6,12 +6,13 @@ import java.util.Date;
 @Entity
 @Table(name = "employee_leave")
 public class EmployeeLeave {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "employee_id", nullable = false)
-    private Integer employeeId;
+    private Long employeeId;
 
     @Column(name = "leave_type", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -29,6 +30,7 @@ public class EmployeeLeave {
     @Enumerated(EnumType.STRING)
     private LeaveStatus status = LeaveStatus.PENDING;
 
+    @Column(nullable = true)
     private String remarks;
 
     // Enums for leave type and status
@@ -41,19 +43,19 @@ public class EmployeeLeave {
     }
 
     // Getters and Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Integer getEmployeeId() {
+    public Long getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Integer employeeId) {
+    public void setEmployeeId(Long employeeId) {
         this.employeeId = employeeId;
     }
 

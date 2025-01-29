@@ -18,7 +18,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    // Get all employees
+    // Get all employees without salary
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
@@ -28,7 +28,7 @@ public class EmployeeService {
         return employeeRepository.countAllEmployees();
     }
 
-
+    // Add employee by id
     public Employee addEmployee(@NotNull Employee employee) {
         if (employee.getFirstname() == null || employee.getLastname() == null || employee.getEmail() == null || employee.getTelephoneNo() == null) {
             throw new IllegalArgumentException("Employee details are incomplete!");
@@ -37,6 +37,7 @@ public class EmployeeService {
         return employee;
     }
 
+    // Edit employee by id
     public Employee updateEmployee(Long id, @NotNull Employee employeeDetails) {
         // Find the employee by ID
         Employee existingEmployee = employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee with ID " + id + " not found"));
@@ -56,7 +57,7 @@ public class EmployeeService {
 
     }
 
-    // Delete Employee by ID
+    // Delete Employee by id
     public void deleteEmployeeById(Long id) {
         // Check if the employee exists
         if (!employeeRepository.existsById(id)) {

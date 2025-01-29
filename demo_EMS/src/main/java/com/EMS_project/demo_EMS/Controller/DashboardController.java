@@ -52,7 +52,7 @@ public class DashboardController {
 
 
     // Approve or Reject leave
-    @GetMapping("dashboard/pendingCount")
+    @GetMapping("dashboard/pending")
     public List<EmployeeLeave> getPendingEmployeeLeaves() {
         return employeeLeaveService.getAllPendingRequests();
     }
