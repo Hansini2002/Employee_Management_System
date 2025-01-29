@@ -14,8 +14,13 @@ public class EmployeeLeave {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employee_id", nullable = false)
-    private Long employeeId;
+//    @Column(name = "employee_id", nullable = false)
+//    private Long employeeId;
+
+    // This is the foreign key relation to employee table
+    @ManyToOne(fetch = FetchType.EAGER)  // Eagerly load the Employee entity
+    @JoinColumn(name = "employee_Id", nullable = false)
+    private Employee employee;
 
     @Column(name = "leave_type", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -36,11 +41,18 @@ public class EmployeeLeave {
     @Column(nullable = true)
     private String remarks;
 
+//    public EmployeeLeave(Employee employee) {
+//        this.employee = employee;
+//    }
+
     // Calculate number of days
     public long getNumberOfDays() {
         return ChronoUnit.DAYS.between(startDate, endDate) + 1; // Add 1 for inclusive end date
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
 
     // Enums for leave type and status
     public enum LeaveType {
@@ -60,13 +72,13 @@ public class EmployeeLeave {
         this.id = id;
     }
 
-    public Long getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(Long employeeId) {
-        this.employeeId = employeeId;
-    }
+//    public Long getEmployeeId() {
+//        return employeeId;
+//    }
+//
+//    public void setEmployeeId(Long employeeId) {
+//        this.employeeId = employeeId;
+//    }
 
     public LeaveType getLeaveType() {
         return leaveType;

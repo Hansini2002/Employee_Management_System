@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -38,6 +39,10 @@ public class Employee {
 
     @Column(nullable = false)
     private String city;
+
+    // One Employee can have many EmployeeLeaves
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<EmployeeLeave> employeeLeaves;
 
     // Getters and Setters
     public Long getId() {
@@ -110,6 +115,10 @@ public class Employee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public List<EmployeeLeave> getEmployeeLeaves() {
+        return employeeLeaves;
     }
 
     public enum Gender {

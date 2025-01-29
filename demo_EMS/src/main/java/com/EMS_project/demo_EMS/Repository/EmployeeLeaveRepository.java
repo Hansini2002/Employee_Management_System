@@ -19,15 +19,14 @@ public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Lo
 //    @Query("SELECT count(e) FROM EmployeeLeave e WHERE e.status = 'PENDING'")
 //    int countPendingLeaves();
 
-//    @Query("SELECT DATEDIFF(e.endDate, e.startDate) FROM EmployeeLeave e WHERE e.id = :id")
-//    int findLeaveDaysById(@Param("id") Long id);
 
     @Query("SELECT e.firstname, l.leaveType, l.status, l.remarks, " +
             "DATEDIFF(l.endDate, l.startDate) AS days " +
             "FROM EmployeeLeave l " +
-            "JOIN Employee e ON l.employeeId = e.employee_id " +
+            "JOIN l.employee e " +
             "WHERE l.id = :leaveId")
-    Object[] findEmployeeLeaveDetails(@Param("leaveId") Long leaveId);
+    List<Object[]> findEmployeeLeaveDetails(@Param("leaveId") Long leaveId);
+
 
     // Method to get all approved leaves
     List<EmployeeLeave> findByStatus(EmployeeLeave.LeaveStatus status);

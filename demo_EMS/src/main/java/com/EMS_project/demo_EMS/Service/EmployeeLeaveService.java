@@ -2,9 +2,11 @@ package com.EMS_project.demo_EMS.Service;
 
 import com.EMS_project.demo_EMS.Model.EmployeeLeave;
 import com.EMS_project.demo_EMS.Repository.EmployeeLeaveRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,19 +51,40 @@ public class EmployeeLeaveService {
         employeeLeaveRepository.save(leave);
     }
 
-    // Get leave requested employees
-    public Map<String, Object> getEmployeeLeaveDetails(Long leaveId) {
-        Object[] result = employeeLeaveRepository.findEmployeeLeaveDetails(leaveId);
+    public List<Map<String, Object>> getEmployeeLeaveInfo() {
+        List<EmployeeLeave> employeeLeaves = employeeLeaveRepository.findAll();  // Get all leaves
 
-        Map<String, Object> response = new HashMap<>();
-        response.put("employeeName", result[0]);
-        response.put("leaveType", result[1]);
-        response.put("status", result[2]);
-        response.put("remarks", result[3]);
-        response.put("leaveDays", result[4]);
+        List<Map<String, Object>> result = new ArrayList<>();
+        for (EmployeeLeave leave : employeeLeaves) {
+            Map<String, Object> leaveInfo = new HashMap<>();
+            leaveInfo.put("employeeName", leave.getEmployee().getFirstname());  // Access related Employee data via foreign key
+            leaveInfo.put("leaveType", leave.getLeaveType());
+            leaveInfo.put("startDate", leave.getStartDate());
+            leaveInfo.put("endDate", leave.getEndDate());
+            leaveInfo.put("numberOfDays", leave.getNumberOfDays());
+            leaveInfo.put("status", leave.getStatus());
+            leaveInfo.put("remarks", leave.getRemarks());
 
-        return response;
+            result.add(leaveInfo);
+        }
+        return result;
     }
+
+//    public List<Map<String, Object>> getEmployeeLeaveDetails(Long leaveId) {
+//        List<Object[]> rawResults = employeeLeaveRepository.findEmployeeLeaveDetails(leaveId);
+//
+//        List<Map<String, Object>> results = new ArrayList<>();
+//        for (Object[] row : rawResults) {
+//            Map<String, Object> record = new HashMap<>();
+//            record.put("employeeName", row[0]);
+//            record.put("leaveType", row[1]);
+//            record.put("status", row[2]);
+//            record.put("remarks", row[3]);
+//            record.put("days", row[4]);
+//            results.add(record);
+//        }
+//        return results;
+//    }
 
 
 }
