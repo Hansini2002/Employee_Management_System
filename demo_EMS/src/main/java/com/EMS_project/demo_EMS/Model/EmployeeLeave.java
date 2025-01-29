@@ -1,6 +1,9 @@
 package com.EMS_project.demo_EMS.Model;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @Entity
@@ -20,11 +23,11 @@ public class EmployeeLeave {
 
     @Column(name = "start_date", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name = "end_date", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date endDate;
+    private LocalDate endDate;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -32,6 +35,12 @@ public class EmployeeLeave {
 
     @Column(nullable = true)
     private String remarks;
+
+    // Calculate number of days
+    public long getNumberOfDays() {
+        return ChronoUnit.DAYS.between(startDate, endDate) + 1; // Add 1 for inclusive end date
+    }
+
 
     // Enums for leave type and status
     public enum LeaveType {
@@ -67,19 +76,19 @@ public class EmployeeLeave {
         this.leaveType = leaveType;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
