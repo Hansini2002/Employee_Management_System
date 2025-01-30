@@ -1,0 +1,94 @@
+.login-page {
+    background: linear-gradient(
+        #6d676780, 
+        #47454580
+    ), 
+    url('Images/image.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.login-form {
+    background-color: #fff;
+    color: #3123d0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 750px;
+    min-height: 300px;
+    opacity: 0.8;
+}
+
+
+.login-buttons .btn:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+
+ul li:hover {
+    background-color: #b19cd9;
+    color: #fff;
+    border-radius: 8px;
+}
+
+
+.employee-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.emp_det_image {
+    width: 200px;  
+    height: 200px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3123d0; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.emp_list_image {
+    width: 50px;  
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3123d0; 
+    box-shadow: 0 4px 6px rgba(212, 142, 190, 0.2); 
+}
+
+.login-buttons .btn {
+    display: flex;          
+    align-items: center;    
+    justify-content: center; 
+    font-size: 1.2rem;      
+    height: 150px;           
+    width: 100%;            
+    text-align: center;     
+}
+
+.card-admin {
+    background-color: #6a0dad; 
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .card-employee {
+    background-color: #8a2be2; 
+    color: white;
+    border-radius: 8px;
+  }
+  
+  .card-salary {
+    background-color: #b19cd9; 
+    color: black;
+    border-radius: 8px;
+  }
+
+  .purple-container {
+    background-color: #c594d5; 
+    padding: 20px; 
+    border-radius: 8px; 
+  }
+  
