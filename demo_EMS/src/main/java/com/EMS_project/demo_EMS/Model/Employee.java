@@ -41,8 +41,8 @@ public class Employee {
     private String city;
 
     // One Employee can have many EmployeeLeaves
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<EmployeeLeave> employeeLeaves;
+//    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<EmployeeLeave> employeeLeaves;
 
     // Getters and Setters
     public Long getId() {
@@ -117,8 +117,12 @@ public class Employee {
         this.city = city;
     }
 
-    public List<EmployeeLeave> getEmployeeLeaves() {
-        return employeeLeaves;
+//    public List<EmployeeLeave> getEmployeeLeaves() {
+//        return employeeLeaves;
+//    }
+
+    public String getPassword() {
+        return email;
     }
 
     public enum Gender {

@@ -2,6 +2,8 @@ package com.EMS_project.demo_EMS.Controller;
 
 import com.EMS_project.demo_EMS.Model.EmployeeLeave;
 import com.EMS_project.demo_EMS.Service.EmployeeLeaveService;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,13 +40,19 @@ public class LeaveController {
         return ResponseEntity.ok("Leave rejected successfully");
     }
 
-    //
+    // Get list of Leave requests with day and employee name
     @GetMapping("/details")
     public List<Map<String, Object>> getEmployeeLeavesInfo() {
         return leaveService.getEmployeeLeaveInfo();
     }
 
-
+    // Add leave request
+    @PostMapping("/{id}/add")
+    public ResponseEntity<String> addLeaveRequest(HttpSession session, @RequestBody EmployeeLeave employeeLeave) {
+        Long employeeId = (Long) session.getAttribute("employeeId");  // Retrieve employeeId from session
+        leaveService.addEmployeeLeave(employeeId, employeeLeave);
+        return ResponseEntity.ok("Leave Request added successfully");
+    }
 
 
 

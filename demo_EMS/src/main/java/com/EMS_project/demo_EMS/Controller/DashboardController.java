@@ -1,6 +1,6 @@
 package com.EMS_project.demo_EMS.Controller;
 
-import com.EMS_project.demo_EMS.Model.Admin;
+//import com.EMS_project.demo_EMS.Model.Admin;
 import com.EMS_project.demo_EMS.Model.EmployeeLeave;
 import com.EMS_project.demo_EMS.Service.AdminService;
 import com.EMS_project.demo_EMS.Service.EmployeeLeaveService;
@@ -25,10 +25,10 @@ public class DashboardController {
     }
 
     // Get the count of admins
-    @GetMapping("dashboard/adminCount")
-    public int getAdminCount() {
-        return adminService.getAdminCount();
-    }
+//    @GetMapping("dashboard/adminCount")
+//    public int getAdminCount() {
+//        return adminService.getAdminCount();
+//    }
 
     // Get the count of employees
     @GetMapping("dashboard/employeeCount")
@@ -45,10 +45,10 @@ public class DashboardController {
     // Dashboard reports , report generator not necessary
 
     // Get list of admins
-    @GetMapping("dashboard/admins")
-    public List<Admin> getAllAdmins() {
-        return adminService.getAllAdmins();
-    }
+//    @GetMapping("dashboard/admins")
+//    public List<Admin> getAllAdmins() {
+//        return adminService.getAllAdmins();
+//    }
 
 
     // Approve or Reject leave

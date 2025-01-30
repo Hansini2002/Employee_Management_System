@@ -1,8 +1,10 @@
 package com.EMS_project.demo_EMS.Service;
 
+import com.EMS_project.demo_EMS.Model.Employee;
 import com.EMS_project.demo_EMS.Model.EmployeeLeave;
 import com.EMS_project.demo_EMS.Repository.EmployeeLeaveRepository;
 import jakarta.transaction.Transactional;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.time.temporal.ChronoUnit;
@@ -57,7 +59,7 @@ public class EmployeeLeaveService {
         List<Map<String, Object>> result = new ArrayList<>();
         for (EmployeeLeave leave : employeeLeaves) {
             Map<String, Object> leaveInfo = new HashMap<>();
-            leaveInfo.put("employeeName", leave.getEmployee().getFirstname());  // Access related Employee data via foreign key
+            leaveInfo.put("employeeName", leave.getEmployeeId());  // Access related Employee data via foreign key
             leaveInfo.put("leaveType", leave.getLeaveType());
             leaveInfo.put("startDate", leave.getStartDate());
             leaveInfo.put("endDate", leave.getEndDate());
@@ -85,6 +87,17 @@ public class EmployeeLeaveService {
 //        }
 //        return results;
 //    }
+
+    public EmployeeLeave addEmployeeLeave(Long id, @NotNull EmployeeLeave request) {
+        // Find the employee by ID
+        EmployeeLeave currentUser = employeeLeaveRepository.findByEmployeeId(id).orElseThrow(() -> new RuntimeException("Employee with ID " + id + " not found"));
+
+        if (request.getStartDate() == null || request.getEndDate() == null || request.getLeaveType() == null || request.getEmployeeId() == null) {
+            throw new IllegalArgumentException("Leave Request details are incomplete!");
+        }
+        employeeLeaveRepository.save(request);
+        return request;
+    }
 
 
 }

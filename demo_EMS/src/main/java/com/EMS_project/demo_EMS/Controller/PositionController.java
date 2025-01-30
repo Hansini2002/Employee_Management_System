@@ -1,6 +1,9 @@
 package com.EMS_project.demo_EMS.Controller;
 
+import com.EMS_project.demo_EMS.Model.Employment;
 import com.EMS_project.demo_EMS.Model.Role;
+import com.EMS_project.demo_EMS.Service.AdminService;
+import com.EMS_project.demo_EMS.Service.EmployeeService;
 import com.EMS_project.demo_EMS.Service.PositionService;
 import jakarta.validation.Valid;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -14,10 +17,12 @@ import java.util.List;
 public class PositionController {
 
     private final PositionService positionService;
+    private final AdminService employmentService;
 
 
-    public PositionController(PositionService positionService) {
+    public PositionController(PositionService positionService, AdminService employeeService) {
         this.positionService = positionService;
+        this.employmentService = employeeService;
     }
 
 
@@ -53,6 +58,12 @@ public class PositionController {
     public ResponseEntity<?> deletePosition(@PathVariable Long id) {
         positionService.deletePositionById(id);
         return ResponseEntity.ok("Employee with ID " + id + " has been deleted successfully.");
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Employment> addEmployment(@RequestBody Employment employment) {
+        Employment newEmployment = employmentService.AddtoDepartment(employment);
+        return ResponseEntity.ok(newEmployment);
     }
 
 }

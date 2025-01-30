@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Long> {
@@ -23,7 +24,7 @@ public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Lo
     @Query("SELECT e.firstname, l.leaveType, l.status, l.remarks, " +
             "DATEDIFF(l.endDate, l.startDate) AS days " +
             "FROM EmployeeLeave l " +
-            "JOIN l.employee e " +
+            "JOIN l.employeeId e " +
             "WHERE l.id = :leaveId")
     List<Object[]> findEmployeeLeaveDetails(@Param("leaveId") Long leaveId);
 
@@ -31,7 +32,9 @@ public interface EmployeeLeaveRepository extends JpaRepository<EmployeeLeave, Lo
     // Method to get all approved leaves
     List<EmployeeLeave> findByStatus(EmployeeLeave.LeaveStatus status);
 
-    List<EmployeeLeave> findByEmployeeId(Long employeeId);
+    List<EmployeeLeave> findAllByEmployeeId(Long employeeId);
+
+    Optional<EmployeeLeave> findByEmployeeId(Long aLong);
 
     @NotNull List<EmployeeLeave> findAll();
 }
